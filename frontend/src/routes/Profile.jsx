@@ -22,9 +22,39 @@ const Profile = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     const form = event.currentTarget;
+    const formData = new FormData(form);
+
+    const platformsArray = formData
+      .get("platforms")
+      .split(",")
+      .map((el) => el.trim());
+    const linksArray = formData
+      .get("links")
+      .split(",")
+      .map((el) => el.trim());
+    const networksArray = formData
+      .get("networks")
+      .split(",")
+      .map((el) => el.trim());
+
+    const modifiedFormData = new FormData();
+    formData.forEach((value, key) => {
+      if (!["platforms", "links", "networks"].includes(key)) {
+        modifiedFormData.append(key, value);
+      }
+    });
+
+    platformsArray.forEach((platform) =>
+      modifiedFormData.append("platforms", platform)
+    );
+    linksArray.forEach((link) => modifiedFormData.append("links", link));
+    networksArray.forEach((network) =>
+      modifiedFormData.append("networks", network)
+    );
+
     const response = await fetch(form.action, {
       method: form.method,
-      body: new FormData(form),
+      body: modifiedFormData,
     });
     const json = await response.json();
     if (json.messages) {
@@ -52,9 +82,9 @@ const Profile = () => {
             </Link>
           </div>
           <div className="mt-5">
-            <h2>Add a post</h2>
+            <h2>Add a game</h2>
             <form
-              action="/api/post/createPost"
+              action="/api/game/createGame"
               encType="multipart/form-data"
               method="POST"
               onSubmit={handleSubmit}
@@ -71,13 +101,43 @@ const Profile = () => {
                 />
               </div>
               <div className="mb-3">
-                <label htmlFor="caption" className="form-label">
-                  Caption
+                <label htmlFor="description" className="form-label">
+                  Description
                 </label>
                 <textarea
                   className="form-control"
-                  id="caption"
-                  name="caption"
+                  id="description"
+                  name="description"
+                ></textarea>
+              </div>
+              <div className="mb-3">
+                <label htmlFor="platforms" className="form-label">
+                  Platforms
+                </label>
+                <textarea
+                  className="form-control"
+                  id="platforms"
+                  name="platforms"
+                ></textarea>
+              </div>
+              <div className="mb-3">
+                <label htmlFor="links" className="form-label">
+                  Links
+                </label>
+                <textarea
+                  className="form-control"
+                  id="links"
+                  name="links"
+                ></textarea>
+              </div>
+              <div className="mb-3">
+                <label htmlFor="networks" className="form-label">
+                  Networks
+                </label>
+                <textarea
+                  className="form-control"
+                  id="networks"
+                  name="networks"
                 ></textarea>
               </div>
               <div className="mb-3">

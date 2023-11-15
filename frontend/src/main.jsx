@@ -12,6 +12,7 @@ import Profile from "./routes/Profile";
 import Logout from "./routes/Logout";
 import Feed from "./routes/Feed";
 import Post from "./routes/Post";
+import PlayGames from "./routes/PlayGames";
 
 const router = createBrowserRouter([
   {
@@ -47,6 +48,7 @@ const router = createBrowserRouter([
         path: "/post/:id",
         element: <Post />,
       },
+      { path: "/play", element: <PlayGames /> },
     ],
   },
 ]);
