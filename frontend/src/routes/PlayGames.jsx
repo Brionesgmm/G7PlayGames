@@ -38,7 +38,7 @@ const PlayGames = () => {
                 key={el._id}
                 href={`${el.url}`}
               >
-                <img className="platformImg" src={`/public/${el.name}.png`} />
+                <img className="platformImg" src={`/${el.name}.png`} />
               </a>
             ))}
         </div>

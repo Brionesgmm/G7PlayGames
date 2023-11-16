@@ -18,7 +18,7 @@ function Root() {
       <div className="headerContainer">
         <header className="header">
           <div className="logoArea">
-            <img className="logo" src="/public/G7Logo.jpeg" />
+            <img className="logo" src="/G7Logo.jpeg" />
             <h1 className="logoText">Game7</h1>
           </div>
         </header>
