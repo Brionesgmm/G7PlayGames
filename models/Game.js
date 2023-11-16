@@ -7,19 +7,36 @@ const GameSchema = new mongoose.Schema({
   },
   image: {
     type: String,
-    require: true,
+    required: true,
   },
   cloudinaryId: {
     type: String,
-    require: true,
+    required: true,
   },
   description: {
     type: String,
     required: true,
   },
-  platforms: [{ type: String }],
-  links: [{ type: String }],
-  networks: [{ type: String }],
+  platforms: [
+    {
+      name: String,
+      url: String,
+      checked: Boolean,
+    },
+  ],
+  links: [
+    {
+      name: String,
+      url: String,
+      checked: Boolean,
+    },
+  ],
+  networks: [
+    {
+      name: String,
+      checked: Boolean,
+    },
+  ],
   user: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "User",

@@ -24,15 +24,34 @@ const PlayGames = () => {
 
   const gamesElement = games.map((game) => {
     return (
-      <div key={game._id}>
-        <h2>{game.title}</h2>
-        <img src={`${game.image}`} alt={`${game.title}`} />
-        <p>{game.description}</p>
+      <div className="gameCard" key={game._id}>
+        <h2 className="gameTitle">{game.title}</h2>
+        <img className="gameImg" src={`${game.image}`} alt={`${game.title}`} />
+        <p className="gameDescription">{game.description}</p>
+        <div className="gamePlatforms">
+          {game.platforms
+            .filter((el) => el.checked)
+            .map((el) => (
+              <a
+                target="_blank"
+                className="platform"
+                key={el._id}
+                href={`${el.url}`}
+              >
+                <img className="platformImg" src={`/public/${el.name}.png`} />
+              </a>
+            ))}
+        </div>
       </div>
     );
   });
 
-  return <div>{gamesElement}</div>;
+  return (
+    <div>
+      <h1 className="playGamesText">Checkout The Games</h1>
+      <div className="playGamesSection">{gamesElement}</div>
+    </div>
+  );
 };
 
 export default PlayGames;

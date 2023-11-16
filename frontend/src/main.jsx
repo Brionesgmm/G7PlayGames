@@ -13,6 +13,7 @@ import Logout from "./routes/Logout";
 import Feed from "./routes/Feed";
 import Post from "./routes/Post";
 import PlayGames from "./routes/PlayGames";
+import Header from "./components/Header";
 
 const router = createBrowserRouter([
   {

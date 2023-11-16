@@ -15,14 +15,14 @@ function Root() {
 
   return (
     <>
-      <header className="container">
-        <div className="text-center">
-          <h1 className="">
-            <Link to={user ? "/profile" : "/"}>Binary Upload Boom</Link>
-          </h1>
-          <span>The #100Devs Social Network</span>
-        </div>
-      </header>
+      <div className="headerContainer">
+        <header className="header">
+          <div className="logoArea">
+            <img className="logo" src="/public/G7Logo.jpeg" />
+            <h1 className="logoText">Game7</h1>
+          </div>
+        </header>
+      </div>
       <Messages messages={messages} />
       <Outlet context={{ user, setUser, setMessages }} />
     </>
