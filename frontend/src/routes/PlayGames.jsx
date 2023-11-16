@@ -48,7 +48,7 @@ const PlayGames = () => {
 
   return (
     <div>
-      <h1 className="playGamesText">Checkout The Games</h1>
+      <h1 className="playGamesText">Explore The Games</h1>
       <div className="playGamesSection">{gamesElement}</div>
     </div>
   );
