@@ -14,6 +14,7 @@ import Feed from "./routes/Feed";
 import Post from "./routes/Post";
 import PlayGames from "./routes/PlayGames";
 import Header from "./components/Header";
+import PlayTest from "./routes/PlayTest";
 
 const router = createBrowserRouter([
   {
@@ -23,7 +24,7 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <PlayGames />,
+        element: <PlayTest />,
       },
       {
         path: "/login",

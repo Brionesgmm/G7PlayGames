@@ -53,7 +53,7 @@ body {
   margin: 1rem 0;
 }
 
-/* Play Games Section */
+/*  Play Test Section */
 
 .playGamesText {
   font-family: "Roboto Condensed", sans-serif;
@@ -62,6 +62,26 @@ body {
   text-align: center;
   margin-top: 6.5rem;
 }
+
+.tabsSection {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.btn {
+  flex-basis: 0;
+  flex-grow: 1;
+  margin: 0.5em;
+  background-color: red;
+  color: white;
+  padding: 1rem 2rem;
+  font-weight: bold;
+  font-size: 2rem;
+  font-family: "Roboto Condensed", sans-serif;
+}
+
+/* Play Games Section */
 
 .playGamesSection {
   display: flex;
