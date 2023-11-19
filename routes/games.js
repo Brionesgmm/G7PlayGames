@@ -8,4 +8,10 @@ router.get("/getGames", gamesController.getGames);
 
 router.post("/createGame", upload.single("file"), gamesController.createGame);
 
+router.put(
+  "/updateGame/:id",
+  upload.single("file"),
+  gamesController.updateGame
+);
+
 module.exports = router;

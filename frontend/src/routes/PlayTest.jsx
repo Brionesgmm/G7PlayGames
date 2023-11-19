@@ -1,5 +1,5 @@
 import { React, useState } from "react";
-import PlayGames from "./PlayGames";
+import PlayGames from "../components/PlayGames";
 
 const PlayTest = () => {
   const [activeTab, setActiveTab] = useState({

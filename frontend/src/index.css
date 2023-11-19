@@ -55,7 +55,8 @@ body {
 
 /*  Play Test Section */
 
-.playGamesText {
+.playGamesText,
+.updateGameHeader {
   font-family: "Roboto Condensed", sans-serif;
   font-size: 3.5rem;
   font-weight: 700;

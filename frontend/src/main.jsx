@@ -12,9 +12,10 @@ import Profile from "./routes/Profile";
 import Logout from "./routes/Logout";
 import Feed from "./routes/Feed";
 import Post from "./routes/Post";
-import PlayGames from "./routes/PlayGames";
+import PlayGames from "./components/PlayGames";
 import Header from "./components/Header";
 import PlayTest from "./routes/PlayTest";
+import UpdateGame from "./routes/UpdateGame";
 
 const router = createBrowserRouter([
   {
@@ -41,6 +42,10 @@ const router = createBrowserRouter([
       {
         path: "/profile",
         element: <Profile />,
+      },
+      {
+        path: "/updategame",
+        element: <UpdateGame />,
       },
       {
         path: "/feed",
