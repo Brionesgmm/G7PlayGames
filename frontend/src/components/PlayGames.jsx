@@ -25,25 +25,31 @@ const PlayGames = () => {
   const gamesElement = games.map((game) => {
     return (
       <div className="gameCard" key={game._id}>
-        <h2 className="gameTitle">{game.title}</h2>
-        <img className="gameImg" src={`${game.image}`} alt={`${game.title}`} />
-        <p className="gameDescription">{game.description}</p>
-        <div className="gamePlatforms">
-          {game.platforms
-            .filter((el) => el.checked)
-            .map((el) => (
-              <a
-                target="_blank"
-                className="platform"
-                key={el._id}
-                href={`${el.url}`}
-              >
-                <img className="platformImg" src={`/${el.name}.png`} />
-              </a>
-            ))}
+        <div className="gameContent">
+          <h2 className="gameTitle">{game.title}</h2>
+          <img
+            className="gameImg"
+            src={`${game.image}`}
+            alt={`${game.title}`}
+          />
+          <p className="gameDescription">{game.description}</p>
+          <div className="gamePlatforms">
+            {game.platforms
+              .filter((el) => el.checked)
+              .map((el) => (
+                <a
+                  target="_blank"
+                  className="platform"
+                  key={el._id}
+                  href={`${el.url}`}
+                >
+                  <img className="platformImg" src={`/${el.name}.png`} />
+                </a>
+              ))}
+          </div>
         </div>
         {game.feedbackForm && (
-          <div>
+          <div className="feedbackSection">
             <p className="gameDescription">Provide feeback for the game:</p>
             <a
               target="_blank"
