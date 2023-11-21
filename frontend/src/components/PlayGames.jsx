@@ -42,6 +42,18 @@ const PlayGames = () => {
               </a>
             ))}
         </div>
+        {game.feedbackForm && (
+          <div>
+            <p className="gameDescription">Provide feeback for the game:</p>
+            <a
+              target="_blank"
+              className="platform"
+              href={`${game.feedbackForm}`}
+            >
+              <img className="feedbackForm" src={`/GoogleFormLogo.png`} />
+            </a>
+          </div>
+        )}
       </div>
     );
   });

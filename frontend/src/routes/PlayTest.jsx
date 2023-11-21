@@ -17,7 +17,7 @@ const PlayTest = () => {
   return (
     <div>
       <h1 className="playGamesText">Playtest Games</h1>
-      <p>Place holder text</p>
+      <p></p>
       <div className="tabsSection">
         <button
           className="btn playTestBtn"
