@@ -60,6 +60,7 @@ exports.updateGame = async (req, res) => {
       platforms: platformsData,
       links: linksData,
       networks: networksData,
+      feedbackForm: req.body.feedbackForm,
       user: req.user.id,
     };
 

@@ -21,6 +21,7 @@ const UpdateGame = () => {
     YouTube: { url: "", checked: false },
   });
   const [networks, setNetworks] = useState([]);
+  const [feedbackForm, setFeedbackForm] = useState("");
 
   const fetchGamesData = async () => {
     try {
@@ -61,7 +62,17 @@ const UpdateGame = () => {
         YouTube: { url: "", checked: false },
       }
     );
-    setNetworks(game.networks);
+    setNetworks(
+      game.networks || {
+        Polygon: false,
+        Ethereum: false,
+        Binance: false,
+        Avalanche: false,
+        Cardano: false,
+      }
+    );
+
+    setFeedbackForm(game.feedbackForm || "");
 
     setGameId(game._id);
     console.log(game._id);
@@ -74,12 +85,12 @@ const UpdateGame = () => {
     event.preventDefault();
     const formData = new FormData();
     console.log(platforms, links, networks);
-    const transformedPlatforms = Object.entries(platforms).map(
-      ([{ url, checked, name }]) => ({ name, url, checked })
-    );
 
+    const transformedPlatforms = Object.entries(platforms).map(
+      ([key, { name, url, checked }]) => ({ name: name, url, checked })
+    );
     const transformedLinks = Object.entries(links).map(
-      ([{ url, checked, name }]) => ({ name, url, checked })
+      ([key, { name, url, checked }]) => ({ name: name, url, checked })
     );
 
     const transformedNetworks = networks.map((network) => ({
@@ -92,6 +103,7 @@ const UpdateGame = () => {
 
     formData.append("title", title);
     formData.append("description", description);
+    formData.append("feedbackForm", feedbackForm);
     if (file) {
       formData.append("file", file);
     }
@@ -245,6 +257,18 @@ const UpdateGame = () => {
                 <label htmlFor={`network${network._id}`}>{network.name}</label>
               </div>
             ))}
+          </div>
+
+          {/*  Feedback form */}
+
+          <div>
+            <label htmlFor="feedbackForm">Feedback URL</label>
+            <input
+              type="text"
+              id="feedbackForm"
+              value={feedbackForm}
+              onChange={(e) => setFeedbackForm(e.target.value)}
+            />
           </div>
 
           {/* File Upload */}
