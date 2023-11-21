@@ -28,6 +28,7 @@ body {
   display: flex;
   align-items: center;
   margin-left: 1rem;
+  text-decoration: none;
 }
 
 .logo {

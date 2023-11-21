@@ -17,10 +17,10 @@ function Root() {
     <>
       <div className="headerContainer">
         <header className="header">
-          <div className="logoArea">
+          <a className="logoArea" href="https://game7.io/">
             <img className="logo" src="/G7Logo.jpeg" />
             <h1 className="logoText">Game7</h1>
-          </div>
+          </a>
         </header>
       </div>
       <Messages messages={messages} />
