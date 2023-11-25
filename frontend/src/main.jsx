@@ -16,6 +16,7 @@ import PlayGames from "./components/PlayGames";
 import Header from "./components/Header";
 import PlayTest from "./routes/PlayTest";
 import UpdateGame from "./routes/UpdateGame";
+import Leaderboard from "./routes/Leaderboard";
 
 const router = createBrowserRouter([
   {
@@ -48,8 +49,8 @@ const router = createBrowserRouter([
         element: <UpdateGame />,
       },
       {
-        path: "/feed",
-        element: <Feed />,
+        path: "/leaderboard",
+        element: <Leaderboard />,
       },
       {
         path: "/post/:id",

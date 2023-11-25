@@ -57,7 +57,8 @@ body {
 /*  Play Test Section */
 
 .playGamesText,
-.updateGameHeader {
+.updateGameHeader,
+.leaderboardSection {
   font-family: "Roboto Condensed", sans-serif;
   font-size: 3.5rem;
   font-weight: 700;
@@ -144,4 +145,105 @@ body {
   width: 100%;
   border-radius: 10px;
   max-width: 10rem;
+}
+
+/* Admin Leaderboard */
+
+.enterUsers {
+  display: flex;
+  flex-direction: column;
+  font-size: 1.5rem;
+}
+
+.usernameInput,
+.scoreInput {
+  display: flex;
+  justify-content: space-between;
+  width: 70%;
+  max-width: 500px;
+  align-self: center;
+}
+
+.addUserBtn {
+  border-radius: 10px;
+  font-size: 1.5rem;
+  align-self: center;
+  margin: 1rem 0;
+  width: 70%;
+}
+
+.updateUsersBtn {
+  font-size: 1.5rem;
+}
+
+/* .showUsers {
+  width: 80%;
+  border: 1px solid black;
+  margin: 0 auto;
+}
+
+.userInfoInputs {
+  font-size: 1rem;
+  display: flex;
+  justify-content: center;
+  justify-content: space-between;
+}
+
+.usernameScore {
+  display: flex;
+  width: 100%;
+} */
+
+.showUsers {
+  width: 80%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid black;
+}
+
+.userInfoInputs {
+  font-size: 1rem;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* creates 4 columns of equal width */
+  gap: 1rem; /* spaces out the columns */
+  align-items: center; /* aligns items vertically in the center */
+  width: 100%;
+  padding: 1rem 0;
+}
+
+.userInfoInputs:not(:last-child) {
+  border-bottom: 2px solid #ccc; /* Adds a border to the bottom of each user info except the last one */
+}
+
+.usernameScore h3,
+.userInfoInputs button {
+  min-width: 60px; /* prevents the grid items from becoming too narrow */
+}
+
+/* Add these to ensure each type of content has its own column */
+.rankColumn {
+  grid-column: 1 / 2;
+}
+
+.nameColumn {
+  grid-column: 2 / 3;
+}
+
+.scoreColumn {
+  grid-column: 3 / 4;
+}
+
+.deleteButtonColumn {
+  grid-column: 4 / 5;
+}
+
+/* Admin Leaderboard Media Query  */
+
+@media screen and (max-width: 525px) {
+  .usernameInput,
+  .scoreInput {
+    flex-direction: column;
+  }
 }

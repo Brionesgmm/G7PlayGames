@@ -12,6 +12,7 @@ const connectDB = require("./config/database");
 const mainRoutes = require("./routes/main");
 const postRoutes = require("./routes/posts");
 const gameRoutes = require("./routes/games");
+const leaderboardRoutes = require("./routes/leaderboard");
 const cors = require("cors");
 
 app.use(cors());
@@ -66,6 +67,7 @@ app.use(flash());
 app.use("/api", mainRoutes);
 app.use("/api/game", gameRoutes);
 app.use("/api/post", postRoutes);
+app.use("/api/leaderboard", leaderboardRoutes);
 app.use("*", (_, res) => {
   res.sendFile(path.join(__dirname, "frontend/dist/index.html"));
 });
