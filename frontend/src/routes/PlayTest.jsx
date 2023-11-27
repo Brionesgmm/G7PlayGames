@@ -1,5 +1,6 @@
 import { React, useState } from "react";
 import PlayGames from "../components/PlayGames";
+import ViewLeaderboard from "../components/ViewLeaderboard";
 
 const PlayTest = () => {
   const [activeTab, setActiveTab] = useState({
@@ -33,6 +34,7 @@ const PlayTest = () => {
         </button>
       </div>
       {activeTab.playTest && <PlayGames />}
+      {activeTab.leaderboard && <ViewLeaderboard />}
     </div>
   );
 };

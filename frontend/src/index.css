@@ -194,13 +194,15 @@ body {
   width: 100%;
 } */
 
-.showUsers {
+.showUsers,
+.viewLeaderboard {
   width: 80%;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
   align-items: center;
-  border: 1px solid black;
+  border: 2px solid black;
+  border-radius: 10px;
 }
 
 .userInfoInputs {
@@ -213,7 +215,8 @@ body {
   padding: 1rem 0;
 }
 
-.userInfoInputs:not(:last-child) {
+.userInfoInputs:not(:last-child),
+.usersInfo:not(:last-child) {
   border-bottom: 2px solid #ccc; /* Adds a border to the bottom of each user info except the last one */
 }
 
@@ -237,6 +240,32 @@ body {
 
 .deleteButtonColumn {
   grid-column: 4 / 5;
+}
+
+/* View Leaderboard */
+
+.viewLeaderboard {
+  background-color: white;
+}
+
+.usersInfo {
+  font-size: 1rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem; /* spaces out the columns */
+  align-items: center; /* aligns items vertically in the center */
+  width: 100%;
+  padding: 1rem 0;
+}
+
+.rank,
+.username,
+.score {
+  text-align: center;
+}
+
+.headerRow {
+  background-color: #f2f2f2;
 }
 
 /* Admin Leaderboard Media Query  */
