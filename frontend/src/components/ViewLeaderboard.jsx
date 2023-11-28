@@ -41,7 +41,7 @@ const ViewLeaderboard = () => {
           return (
             <div className="usersInfo" key={user.id}>
               <div className="rankColumn rank">
-                <h3 className="rank">Rank: {index + 1}</h3>
+                <h3 className="rank">{index + 1}</h3>
               </div>
               <div className="nameColumn username">
                 <h3 className="username">{user.username}</h3>
