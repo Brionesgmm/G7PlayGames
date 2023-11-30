@@ -276,3 +276,19 @@ body {
     flex-direction: column;
   }
 }
+
+@media screen and (max-width: 800px) {
+  .rank,
+  .username,
+  .score {
+    font-size: 1.25rem;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .rank,
+  .username,
+  .score {
+    font-size: 1rem;
+  }
+}
