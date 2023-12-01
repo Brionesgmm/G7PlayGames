@@ -73,8 +73,6 @@ const Profile = () => {
     event.preventDefault();
     const form = event.currentTarget;
     const formData = new FormData();
-    // Transform the state objects into the desired format
-    // Transform the state objects into the desired format
     const transformedPlatforms = Object.entries(platforms).map(
       ([key, { url, checked }]) => ({ name: key, url, checked })
     );
@@ -85,7 +83,6 @@ const Profile = () => {
       ([key, checked]) => ({ name: key, checked })
     );
 
-    // Initialize FormData and append transformed data
     formData.append("title", title);
     formData.append("description", description);
     formData.append("platforms", JSON.stringify(transformedPlatforms));

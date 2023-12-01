@@ -6,10 +6,16 @@ const { ensureAuth, ensureGuest } = require("../middleware/auth");
 
 router.get("/getGames", gamesController.getGames);
 
-router.post("/createGame", upload.single("file"), gamesController.createGame);
+router.post(
+  "/createGame",
+  ensureAuth,
+  upload.single("file"),
+  gamesController.createGame
+);
 
 router.put(
   "/updateGame/:id",
+  ensureAuth,
   upload.single("file"),
   gamesController.updateGame
 );

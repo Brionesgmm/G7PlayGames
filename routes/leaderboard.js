@@ -5,6 +5,10 @@ const { ensureAuth, ensureGuest } = require("../middleware/auth");
 
 router.get("/getLeaderboard", leaderboardController.getLeaderboard);
 
-router.put("/updateLeaderboard", leaderboardController.updateLeaderboard);
+router.put(
+  "/updateLeaderboard",
+  ensureAuth,
+  leaderboardController.updateLeaderboard
+);
 
 module.exports = router;

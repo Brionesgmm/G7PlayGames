@@ -174,6 +174,11 @@ body {
 
 .updateUsersBtn {
   font-size: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.userScore {
+  font-size: 1.25rem;
 }
 
 /* .showUsers {
@@ -198,6 +203,7 @@ body {
 .viewLeaderboard {
   width: 90%;
   margin: 0 auto;
+  margin-bottom: 2rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -223,6 +229,10 @@ body {
 .usernameScore h3,
 .userInfoInputs button {
   min-width: 60px; /* prevents the grid items from becoming too narrow */
+}
+
+.oldScore {
+  font-size: 1rem;
 }
 
 /* Add these to ensure each type of content has its own column */

@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
+import { useOutletContext } from "react-router-dom";
 
 const Leaderboard = () => {
+  const { user, setMessages } = useOutletContext();
   const [users, setUsers] = useState([]);
   const [addUsername, setAddUsername] = useState("");
   const [addScore, setAddScore] = useState(0);
@@ -81,6 +83,12 @@ const Leaderboard = () => {
     fetchLeaderBoardData();
   }, []);
 
+  console.log(user);
+
+  if (!user) {
+    return null;
+  }
+
   return (
     <div className="leaderboardSection">
       <div className="addUsers">
@@ -121,6 +129,20 @@ const Leaderboard = () => {
         </form>
       </div>
       <div className="showUsers">
+        <div className="userInfoInputs headerRow">
+          <div className="rankColumn">
+            <h3>Rank</h3>
+          </div>
+          <div className="nameColumn">
+            <h3>Username</h3>
+          </div>
+          <div className="scoreColumn">
+            <h3>Score</h3>
+          </div>
+          <div className="deleteButtonColumn">
+            <h3>Delete</h3>
+          </div>
+        </div>
         {users
           .sort((a, b) => b.score - a.score)
           .map((user, index) => {
@@ -134,6 +156,7 @@ const Leaderboard = () => {
                 </div>
                 <div className="scoreColumn">
                   <input
+                    className="userScore"
                     type="number"
                     value={user.score}
                     onChange={(e) => updateScore(user.id, e)}
@@ -141,7 +164,7 @@ const Leaderboard = () => {
                   {user.score !==
                     oldUserScore.find((oldUser) => oldUser.id === user.id)
                       .score && (
-                    <h3>
+                    <h3 className="oldScore">
                       Old score:
                       {
                         oldUserScore.find((oldUser) => oldUser.id === user.id)
