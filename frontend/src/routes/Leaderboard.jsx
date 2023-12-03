@@ -149,7 +149,7 @@ const Leaderboard = () => {
             return (
               <div className="userInfoInputs" key={user.id}>
                 <div className="rankColumn ">
-                  <h3>Rank: {index + 1}</h3>
+                  <h3>{index + 1}</h3>
                 </div>
                 <div className="nameColumn">
                   <h3>{user.username}</h3>

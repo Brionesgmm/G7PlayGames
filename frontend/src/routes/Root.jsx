@@ -21,6 +21,16 @@ function Root() {
             <img className="logo" src="/G7Logo.jpeg" />
             <h1 className="logoText">Game7</h1>
           </a>
+          {user && (
+            <ul className="adminLinks">
+              <Link to="/profile" className="links">
+                <li>Games</li>
+              </Link>
+              <Link to="/leaderboard" className="links">
+                <li>Leaderboard</li>
+              </Link>
+            </ul>
+          )}
         </header>
       </div>
       <Messages messages={messages} />
