@@ -25,6 +25,7 @@ exports.createGame = async (req, res) => {
       image: result.secure_url,
       cloudinaryId: result.public_id,
       description: req.body.description,
+      feedbackForm: req.body.feedbackUrl,
       platforms: platformsData, // Use the parsed data
       links: linksData,
       networks: networksData,

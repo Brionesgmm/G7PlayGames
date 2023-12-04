@@ -134,7 +134,7 @@ const UpdateGame = () => {
 
   return (
     <div className="container">
-      <h2 className="updateGameHeader">Update Game</h2>
+      <h2 className="updateGameHeader">Update Games</h2>
 
       {games.length > 0 && (
         <div>

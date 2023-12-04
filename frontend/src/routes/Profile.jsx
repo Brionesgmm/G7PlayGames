@@ -8,6 +8,7 @@ const Profile = () => {
   const [posts, setPosts] = useState([]);
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
+  const [feedbackUrl, setFeedbackUrl] = useState("");
   const [file, setFile] = useState(null);
   const [platforms, setPlatforms] = useState({
     Web: { url: "", checked: false },
@@ -91,6 +92,7 @@ const Profile = () => {
 
     formData.append("title", title);
     formData.append("description", description);
+    formData.append("feedbackUrl", feedbackUrl);
     formData.append("platforms", JSON.stringify(transformedPlatforms));
     formData.append("links", JSON.stringify(transformedLinks));
     formData.append("networks", JSON.stringify(transformedNetworks));
@@ -199,6 +201,18 @@ const Profile = () => {
                     value={description}
                     onChange={(e) => setDescription(e.target.value)}
                   ></textarea>
+                </div>
+                <div className="mb-3">
+                  <label htmlFor="feedbackUrl" className="form-label">
+                    Feedback URL
+                  </label>
+                  <input
+                    type="text"
+                    className="form-control"
+                    id="feedbackUrl"
+                    value={feedbackUrl}
+                    onChange={(e) => setFeedbackUrl(e.target.value)}
+                  />
                 </div>
 
                 {/* Platforms */}
