@@ -72,7 +72,8 @@ body {
 
 /* Signup Section */
 
-.signupSection {
+.signupSection,
+.loginSection {
   margin-top: 6.5rem;
 }
 
@@ -337,6 +338,23 @@ body {
 
 .headerRow h3 {
   font-weight: bold;
+}
+
+/* Login section */
+
+.loginSection {
+  display: flex;
+  justify-content: center;
+}
+
+.loginBtn,
+.signupBtn {
+  margin: 0;
+  width: 100%;
+}
+
+.createAccountLink {
+  font-size: 1.25rem;
 }
 
 /* Admin Leaderboard Media Query  */

@@ -1,4 +1,4 @@
-import { useNavigate, useOutletContext } from "react-router-dom";
+import { Link, useNavigate, useOutletContext } from "react-router-dom";
 
 function Signup() {
   const { setUser, setMessages } = useOutletContext();
@@ -31,7 +31,7 @@ function Signup() {
           <form action="/api/signup" method="POST" onSubmit={handleSubmit}>
             <div className="mb-3">
               <label htmlFor="userName" className="form-label">
-                User Name
+                Name
               </label>
               <input
                 type="text"
@@ -89,10 +89,14 @@ function Signup() {
                 placeholder="Enter signup code"
               />
             </div>
-            <button type="submit" className="btn btn-primary">
+            <button type="submit" className="btn btn-primary signupBtn">
               Submit
             </button>
           </form>
+          <p className="createAccountLink">
+            Already have an account?
+            <Link to="/login">Login Here</Link>
+          </p>
         </section>
       </div>
     </main>

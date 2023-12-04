@@ -1,4 +1,4 @@
-import { useNavigate, useOutletContext } from "react-router-dom";
+import { Link, useNavigate, useOutletContext } from "react-router-dom";
 
 function Login() {
   const { setUser, setMessages } = useOutletContext();
@@ -23,7 +23,7 @@ function Login() {
 
   return (
     <main className="container">
-      <div className="row justify-content-center">
+      <div className="loginSection">
         <section className="col-6 mt-5">
           <form action="/api/login" method="POST" onSubmit={handleSubmit}>
             <div className="mb-3">
@@ -49,10 +49,14 @@ function Login() {
                 name="password"
               />
             </div>
-            <button type="submit" className="btn btn-primary">
+            <button type="submit" className="btn btn-primary loginBtn">
               Submit
             </button>
           </form>
+          <p className="createAccountLink">
+            Create a new account here:{" "}
+            <Link to="/signup">Create New Account</Link>
+          </p>
         </section>
       </div>
     </main>
