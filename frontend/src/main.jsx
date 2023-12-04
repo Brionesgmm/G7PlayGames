@@ -44,10 +44,10 @@ const router = createBrowserRouter([
         path: "/profile",
         element: <Profile />,
       },
-      {
-        path: "/updategame",
-        element: <UpdateGame />,
-      },
+      // {
+      //   path: "/updategame",
+      //   element: <UpdateGame />,
+      // },
       {
         path: "/leaderboard",
         element: <Leaderboard />,

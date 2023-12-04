@@ -70,7 +70,12 @@ body {
   color: rgb(136, 255, 0);
 }
 
-/* Upload Section */
+/* Upload Games Section */
+
+.addGameSection {
+  margin-top: 6.5rem;
+  text-align: center;
+}
 
 .platformSection,
 .networksSection,
@@ -80,7 +85,27 @@ body {
   margin: 1rem 0;
 }
 
-/*  Play Test Section */
+.gameOptions {
+  display: flex;
+}
+
+/* Update Games Section */
+
+.gameUpdateChoices {
+  border-radius: 5px;
+  margin: 0.25rem;
+  padding: 0.25rem 0.75rem;
+  border: 1px solid black;
+  color: white;
+  background-color: black;
+}
+
+.gameUpdateChoices:hover {
+  color: black;
+  background-color: white;
+}
+
+/* Play Test Section */
 
 .playGamesText,
 .updateGameHeader,
@@ -314,6 +339,10 @@ body {
   .usernameInput,
   .scoreInput {
     flex-direction: column;
+  }
+
+  .gameOptions * {
+    font-size: 1.25rem;
   }
 }
 

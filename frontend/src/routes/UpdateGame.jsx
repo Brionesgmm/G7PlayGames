@@ -140,7 +140,11 @@ const UpdateGame = () => {
         <div>
           <h3>Select a Game to Update</h3>
           {games.map((game) => (
-            <button key={game._id} onClick={() => selectGame(game)}>
+            <button
+              className="gameUpdateChoices"
+              key={game._id}
+              onClick={() => selectGame(game)}
+            >
               {game.title}
             </button>
           ))}
@@ -153,6 +157,7 @@ const UpdateGame = () => {
             <label htmlFor="title">Title</label>
             <input
               type="text"
+              className="form-control"
               id="title"
               value={title}
               onChange={(e) => setTitle(e.target.value)}
@@ -162,6 +167,7 @@ const UpdateGame = () => {
             <label htmlFor="description">Description</label>
             <textarea
               id="description"
+              className="form-control"
               value={description}
               onChange={(e) => setDescription(e.target.value)}
             ></textarea>

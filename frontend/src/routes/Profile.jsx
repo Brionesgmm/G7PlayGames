@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link, useOutletContext } from "react-router-dom";
+import UpdateGame from "./UpdateGame";
 import PostList from "../components/PostList";
 
 const Profile = () => {
@@ -27,6 +28,11 @@ const Profile = () => {
     Binance: false,
     Avalanche: false,
     Cardano: false,
+  });
+
+  const [activeTab, setActiveTab] = useState({
+    addGames: true,
+    updateGames: false,
   });
 
   useEffect(() => {
@@ -134,124 +140,144 @@ const Profile = () => {
     }
   };
 
+  function changeTab(key) {
+    setActiveTab({
+      addGames: key === "addGames",
+      updateGames: key === "updateGames",
+    });
+  }
+
   return (
-    <div className="container">
-      <div className="row mt-5">
-        <div className="col-6">
+    <div className="container addGameSection">
+      <div>
+        <div>
           <div>
             <p>
-              <strong>User Name</strong>: {user.userName}
+              <strong>Name</strong>: {user.userName}
             </p>
-            <p>
-              <strong>Email</strong>: {user.email}
-            </p>
-            <Link to="/logout" className="col-3 btn btn-primary">
+            <Link to="/logout" className="btn btn-primary">
               Logout
             </Link>
           </div>
-          <div className="mt-5">
-            <h2>Add a game</h2>
-            <form onSubmit={handleSubmit} encType="multipart/form-data">
-              <div className="mb-3">
-                <label htmlFor="title" className="form-label">
-                  Title
-                </label>
-                <input
-                  type="text"
-                  className="form-control"
-                  id="title"
-                  value={title}
-                  onChange={(e) => setTitle(e.target.value)}
-                />
-              </div>
-              <div className="mb-3">
-                <label htmlFor="description" className="form-label">
-                  Description
-                </label>
-                <textarea
-                  className="form-control"
-                  id="description"
-                  value={description}
-                  onChange={(e) => setDescription(e.target.value)}
-                ></textarea>
-              </div>
-
-              {/* Platforms */}
-              <div className="platformSection">
-                {Object.entries(platforms).map(([key, { url, checked }]) => (
-                  <div key={key}>
-                    <input
-                      type="checkbox"
-                      id={`platform${key}`}
-                      checked={checked}
-                      onChange={(e) => handleInputChange(e, "platforms", key)}
-                      name={`platforms[${key}]`}
-                    />
-                    <label htmlFor={`platform${key}`}>{key}</label>
-                    <input
-                      type="text"
-                      value={url}
-                      onChange={(e) => handleInputChange(e, "platforms", key)}
-                      name={`platforms[${key}]url`}
-                      placeholder={`${key} URL`}
-                    />
-                  </div>
-                ))}
-              </div>
-              {/* Links */}
-              <div className="linksSection">
-                {Object.entries(links).map(([key, { url, checked }]) => (
-                  <div key={key}>
-                    <input
-                      type="checkbox"
-                      id={`link${key}`}
-                      checked={checked}
-                      onChange={(e) => handleInputChange(e, "links", key)}
-                      name={`links[${key}]`}
-                    />
-                    <label htmlFor={`link${key}`}>{key}</label>
-                    <input
-                      type="text"
-                      value={url}
-                      onChange={(e) => handleInputChange(e, "links", key)}
-                      name={`links[${key}]url`}
-                      placeholder={`${key} URL`}
-                    />
-                  </div>
-                ))}
-              </div>
-              {/* Networks */}
-              <div className="networksSection">
-                {Object.entries(networks).map(([key, checked]) => (
-                  <div key={key}>
-                    <input
-                      type="checkbox"
-                      id={`network${key}`}
-                      checked={checked}
-                      onChange={(e) => handleInputChange(e, "networks", key)}
-                      name={`networks[${key}]`}
-                    />
-                    <label htmlFor={`network${key}`}>{key}</label>
-                  </div>
-                ))}
-              </div>
-              <div className="mb-3">
-                <label htmlFor="imgUpload" className="form-label">
-                  Image
-                </label>
-                <input
-                  type="file"
-                  className="form-control"
-                  id="imageUpload"
-                  onChange={(e) => setFile(e.target.files[0])}
-                />
-              </div>
-
-              <button type="submit" className="btn btn-primary">
-                Submit
-              </button>
-            </form>
+          <div className="gameOptions">
+            <Link to="/" className="btn btn-primary">
+              View All Games
+            </Link>
+            <button
+              className="btn btn-primary"
+              onClick={() =>
+                changeTab(activeTab.addGames ? "updateGames" : "addGames")
+              }
+            >
+              {activeTab.addGames ? "Update Games" : "Add Games"}
+            </button>
           </div>
+          {activeTab.updateGames && <UpdateGame />}
+          {activeTab.addGames && (
+            <div className="mt-5">
+              <h2>Add a game</h2>
+              <form onSubmit={handleSubmit} encType="multipart/form-data">
+                <div className="mb-3">
+                  <label htmlFor="title" className="form-label">
+                    Title
+                  </label>
+                  <input
+                    type="text"
+                    className="form-control"
+                    id="title"
+                    value={title}
+                    onChange={(e) => setTitle(e.target.value)}
+                  />
+                </div>
+                <div className="mb-3">
+                  <label htmlFor="description" className="form-label">
+                    Description
+                  </label>
+                  <textarea
+                    className="form-control"
+                    id="description"
+                    value={description}
+                    onChange={(e) => setDescription(e.target.value)}
+                  ></textarea>
+                </div>
+
+                {/* Platforms */}
+                <div className="platformSection">
+                  {Object.entries(platforms).map(([key, { url, checked }]) => (
+                    <div key={key}>
+                      <input
+                        type="checkbox"
+                        id={`platform${key}`}
+                        checked={checked}
+                        onChange={(e) => handleInputChange(e, "platforms", key)}
+                        name={`platforms[${key}]`}
+                      />
+                      <label htmlFor={`platform${key}`}>{key}</label>
+                      <input
+                        type="text"
+                        value={url}
+                        onChange={(e) => handleInputChange(e, "platforms", key)}
+                        name={`platforms[${key}]url`}
+                        placeholder={`${key} URL`}
+                      />
+                    </div>
+                  ))}
+                </div>
+                {/* Links */}
+                <div className="linksSection">
+                  {Object.entries(links).map(([key, { url, checked }]) => (
+                    <div key={key}>
+                      <input
+                        type="checkbox"
+                        id={`link${key}`}
+                        checked={checked}
+                        onChange={(e) => handleInputChange(e, "links", key)}
+                        name={`links[${key}]`}
+                      />
+                      <label htmlFor={`link${key}`}>{key}</label>
+                      <input
+                        type="text"
+                        value={url}
+                        onChange={(e) => handleInputChange(e, "links", key)}
+                        name={`links[${key}]url`}
+                        placeholder={`${key} URL`}
+                      />
+                    </div>
+                  ))}
+                </div>
+                {/* Networks */}
+                <div className="networksSection">
+                  {Object.entries(networks).map(([key, checked]) => (
+                    <div key={key}>
+                      <input
+                        type="checkbox"
+                        id={`network${key}`}
+                        checked={checked}
+                        onChange={(e) => handleInputChange(e, "networks", key)}
+                        name={`networks[${key}]`}
+                      />
+                      <label htmlFor={`network${key}`}>{key}</label>
+                    </div>
+                  ))}
+                </div>
+                <div className="mb-3">
+                  <label htmlFor="imgUpload" className="form-label">
+                    Image
+                  </label>
+                  <input
+                    type="file"
+                    className="form-control"
+                    id="imageUpload"
+                    onChange={(e) => setFile(e.target.files[0])}
+                  />
+                </div>
+
+                <button type="submit" className="btn btn-primary">
+                  Submit
+                </button>
+              </form>
+            </div>
+          )}
         </div>
       </div>
     </div>
