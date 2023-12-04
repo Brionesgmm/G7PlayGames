@@ -53,6 +53,10 @@ exports.logout = (req, res) => {
 
 exports.postSignup = (req, res, next) => {
   const validationErrors = [];
+  const { signupCode } = req.body;
+  if (signupCode !== process.env.SIGNUP_CODE) {
+    validationErrors.push({ msg: "Invalid sign-up code." });
+  }
   if (!validator.isEmail(req.body.email))
     validationErrors.push({ msg: "Please enter a valid email address." });
   if (!validator.isLength(req.body.password, { min: 8 }))

@@ -26,7 +26,7 @@ function Signup() {
 
   return (
     <main className="container">
-      <div className="row justify-content-center">
+      <div className="row justify-content-center signupSection">
         <section className="col-6 mt-5">
           <form action="/api/signup" method="POST" onSubmit={handleSubmit}>
             <div className="mb-3">
@@ -75,6 +75,18 @@ function Signup() {
                 className="form-control"
                 id="confirmPassword"
                 name="confirmPassword"
+              />
+            </div>
+            <div className="mb-3">
+              <label htmlFor="signupCode" className="form-label">
+                Signup Code
+              </label>
+              <input
+                type="text"
+                className="form-control"
+                id="signupCode"
+                name="signupCode"
+                placeholder="Enter signup code"
               />
             </div>
             <button type="submit" className="btn btn-primary">

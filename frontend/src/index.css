@@ -70,6 +70,12 @@ body {
   color: rgb(136, 255, 0);
 }
 
+/* Signup Section */
+
+.signupSection {
+  margin-top: 6.5rem;
+}
+
 /* Upload Games Section */
 
 .addGameSection {
