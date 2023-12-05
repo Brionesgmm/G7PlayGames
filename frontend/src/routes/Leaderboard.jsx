@@ -71,7 +71,7 @@ const Leaderboard = () => {
     setUsers((preUsers) => {
       return preUsers.map((user) => {
         if (user.id === userId) {
-          return { ...user, score: parseInt(event.target.value) };
+          return { ...user, score: parseFloat(event.target.value) };
         } else {
           return user;
         }
