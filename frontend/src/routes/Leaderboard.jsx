@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useOutletContext } from "react-router-dom";
+import LoadingIcon from "../components/LoadingIcon";
 
 const Leaderboard = () => {
   const { user, setMessages } = useOutletContext();
@@ -8,6 +9,8 @@ const Leaderboard = () => {
   const [addScore, setAddScore] = useState(0);
   const [oldUserScore, setOldUserScore] = useState([]);
   const [isAddingNewUsers, setIsAddingNewUsers] = useState(false);
+  const [isSubmittingData, setIsSubmittingData] = useState(false);
+  const [isDataSubmitted, setIsDataSubmitted] = useState(false);
 
   console.log(addUsername, addScore);
   console.log(users);
@@ -29,6 +32,9 @@ const Leaderboard = () => {
   };
 
   const updateUsers = async (event) => {
+    setIsSubmittingData(true);
+    setIsDataSubmitted(false);
+    setIsAddingNewUsers(false);
     event.preventDefault();
     const form = event.currentTarget;
     const data = { users: users };
@@ -44,9 +50,13 @@ const Leaderboard = () => {
     const json = await response.json();
     setUsers(json.users);
     setOldUserScore(json.users);
+    setIsSubmittingData(false);
+    setIsDataSubmitted(true);
   };
 
   function addUser() {
+    setIsAddingNewUsers(true);
+    setIsDataSubmitted(false);
     setUsers((preUsers) => {
       return [
         ...preUsers,
@@ -62,12 +72,16 @@ const Leaderboard = () => {
   }
 
   function deleteUser(id) {
+    setIsDataSubmitted(false);
+    setIsAddingNewUsers(true);
     setUsers((preUsers) => {
       return preUsers.filter((prevUser) => prevUser.id !== id);
     });
   }
 
   function updateScore(userId, event) {
+    setIsAddingNewUsers(true);
+    setIsDataSubmitted(false);
     setUsers((preUsers) => {
       return preUsers.map((user) => {
         if (user.id === userId) {
@@ -125,6 +139,16 @@ const Leaderboard = () => {
           method="POST"
           onSubmit={updateUsers}
         >
+          {isAddingNewUsers && <h2>Please sumbit changes to databse</h2>}
+          {isDataSubmitted && <h2>Users added to database!</h2>}
+          {isSubmittingData ? (
+            <div>
+              <h2>Submitting data to database...</h2>
+              <LoadingIcon />
+            </div>
+          ) : (
+            ""
+          )}
           <button className="updateUsersBtn">Update Users</button>
         </form>
       </div>

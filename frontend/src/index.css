@@ -233,6 +233,16 @@ body {
 .updateUsersBtn {
   font-size: 1.5rem;
   margin-bottom: 2rem;
+  border-radius: 5px;
+  border: none;
+  background-color: rgb(136, 255, 0);
+  color: black;
+  padding: 0.5rem 1.25rem;
+}
+
+.updateUsersBtn:hover {
+  background-color: rgb(79, 149, 0);
+  color: white;
 }
 
 .userScore {
@@ -355,6 +365,22 @@ body {
 
 .createAccountLink {
   font-size: 1.25rem;
+}
+
+/* Loading Icon */
+.loadingIcon * {
+  z-index: -1;
+  margin: 0;
+  padding: 0;
+}
+
+.loadingIcon {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  max-width: 300px;
 }
 
 /* Admin Leaderboard Media Query  */
